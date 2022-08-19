@@ -1,0 +1,8 @@
+C:\Users\Nikita\Desktop\практика c#\Парковка\Parking\Parking\bin\Debug\Parking.exe.config
+C:\Users\Nikita\Desktop\практика c#\Парковка\Parking\Parking\bin\Debug\Parking.exe
+C:\Users\Nikita\Desktop\практика c#\Парковка\Parking\Parking\bin\Debug\Parking.pdb
+C:\Users\Nikita\Desktop\практика c#\Парковка\Parking\Parking\obj\Debug\Parking.csproj.AssemblyReference.cache
+C:\Users\Nikita\Desktop\практика c#\Парковка\Parking\Parking\obj\Debug\Parking.csproj.SuggestedBindingRedirects.cache
+C:\Users\Nikita\Desktop\практика c#\Парковка\Parking\Parking\obj\Debug\Parking.csproj.CoreCompileInputs.cache
+C:\Users\Nikita\Desktop\практика c#\Парковка\Parking\Parking\obj\Debug\Parking.exe
+C:\Users\Nikita\Desktop\практика c#\Парковка\Parking\Parking\obj\Debug\Parking.pdb
