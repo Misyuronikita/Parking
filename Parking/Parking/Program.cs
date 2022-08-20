@@ -12,7 +12,79 @@ namespace Parking
             {
                 Console.WriteLine("Error! Try again");
             }
+            Console.Clear();
         }
+
+        static void Print(CarPlace parking)
+        {
+            parking.PrintParkedCars();
+        }
+
+        static string Input(out string a)
+        {
+            a = Console.ReadLine();
+            Console.Clear();
+            return a;
+        }
+
+        static void Inicialization(CarPlace parking, DateTime ArrivingTime, string mark, string model, string number, string color)
+        {
+            parking.ParkCar(new Car
+            {
+                ArrivingTime = ArrivingTime,
+                Mark = mark,
+                Model = model,
+                Number = number,
+                Color = color
+            });
+        }
+
+        static void Add(CarPlace parking)
+        {
+            Console.Write("Модель автомобиля: ");
+            string model = Input(out model);
+
+
+            Console.Write("Марка автомобиля: ");
+            string mark = Input(out mark);
+
+
+            Console.Write("Цвет автомобиля: ");
+            string color = Input(out color);
+
+
+            Console.Write("Номер автомобиля: ");
+            string number = Input(out number);
+
+
+            var ArrivingTime = DateTime.Now;
+
+            Inicialization(parking, ArrivingTime, mark, model, number, color);
+
+            Print(parking);
+        }
+
+        static void Delete(CarPlace parking)
+        {
+            Console.WriteLine("Какая машина уехала?");
+            int index;
+            Check(out index);
+            parking.DeleteCar(parking,index);
+            Print(parking);
+        }
+
+        static void Menu()
+        {
+            Console.WriteLine("1 - Просмотреть какие машины есть на стоянке\n" +
+                "2 - Добавить новую машину\n" +
+                "3 - Удалить машину\n" +
+                "4 - Выйти из программы");
+        }
+        static void Exit()
+        {
+            Environment.Exit(0);
+        }
+
         static void Main(string[] args)
         {
             var parking = new CarPlace
@@ -22,89 +94,53 @@ namespace Parking
                     new Car
                     {
                         ArrivingTime = new DateTime(2022, 08, 18, 14, 01, 38),
-                        mark = "BMW",
-                        model = "X6",
-                        number = "6663 AX-4",
-                        color = "Red",
+                        Mark = "BMW",
+                        Model = "X6",
+                        Number = "6663 AX-4",
+                        Color = "Red",
 
                     },
 
                     new Car
                     {
                         ArrivingTime = new DateTime (2022, 08, 18, 13, 48, 34),
-                        mark = "Pegeout",
-                        model = "306",
-                        number = "6564 AB-5",
-                        color = "Black",
+                        Mark = "Pegeout",
+                        Model = "306",
+                        Number = "6564 AB-5",
+                        Color = "Black",
 
                     },
                     new Car
                     {
 
                         ArrivingTime = new DateTime (2022, 08, 18, 13,56,06),
-                        mark = "Volkswagen",
-                        model = "Polo",
-                        number = "5214 EM-3",
-                        color = "Black",
+                        Mark = "Volkswagen",
+                        Model = "Polo",
+                        Number = "5214 EM-3",
+                        Color = "Black",
 
                     },
                 }
             };
 
-
             int selection;
             do
             {
-                Console.WriteLine("1 - Просмотреть какие машины есть на стоянке\n" +
-                "2 - Добавить новую машину\n" +
-                "3 - Удалить машину\n" +
-                "4 - Выйти из программы");
-               
+                Menu();
                 Check(out selection);
-                Console.Clear();
                 switch (selection)
                 {
                     case 1:
-                        Console.WriteLine("Parked Cars:\n");
-                        parking.PrintParkedCars();
+                        Print(parking);
                         break;
                     case 2:
-                        Console.Write("Модель автомобиля: ");
-                        var model = Console.ReadLine();
-                        Console.Clear();
-                        Console.Write("Марка автомобиля: ");
-                        var mark = Console.ReadLine();
-                        Console.Clear();
-                        Console.Write("Цвет автомобиля: ");
-                        var color = Console.ReadLine();
-                        Console.Clear();
-                        Console.Write("Номер автомобиля: ");
-                        var number = Console.ReadLine();
-                        Console.Clear();
-                        var ArrivingTime = DateTime.Now;
-        
-                        parking.ParkCar(new Car
-                        {
-                            ArrivingTime = ArrivingTime,
-                            mark = mark,
-                            model = model,
-                            number = number,
-                            color = color
-                        });
-                        Console.Clear();
-                        
-                        parking.PrintParkedCars();
+                        Add(parking);
                         break;
                     case 3:
-                        Console.WriteLine("Какая машина уехала?");
-                        int index;
-                        Check(out index);
-                        Console.Clear();
-                        parking.DeleteCar(parking, index);
-                        parking.PrintParkedCars();
+                        Delete(parking);
                         break;
                     case 4:
-                        Environment.Exit(0);
+                        Exit();
                         break;
                     default:
                         Console.WriteLine("Некорректное значение\n");

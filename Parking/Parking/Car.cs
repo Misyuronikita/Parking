@@ -8,11 +8,15 @@ namespace Parking
 {
     internal class Car
     {
-        public string mark { get; set; }
+        public string Mark { get; set; }
         
-        public string model { get; set; }
-        public string color { get; set; }
-        public string number { get; set; }
+        public string Model { get; set; }
+
+        public string Color { get; set; }
+
+        public string Number { get; set; }
+
         public DateTime ArrivingTime { get; set; }
+
     }
 }
