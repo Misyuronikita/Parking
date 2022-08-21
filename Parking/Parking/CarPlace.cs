@@ -14,7 +14,17 @@ namespace Parking
             ParkedCars.Add(car);
         }
 
-        public void DeleteCar(Car car, int indexToRemove)
+        public void ParkMoto(Moto moto)
+        {
+            ParkedMotos.Add(moto);
+        }
+
+        public void DeleteMoto(int indexToRemove)
+        {
+            ParkedMotos.RemoveAt(indexToRemove);
+        }
+
+        public void DeleteCar(int indexToRemove)
         {
             ParkedCars.RemoveAt(indexToRemove);
         }

@@ -1,24 +1,58 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Parking
 {
-    internal class CarPlacePrinter: Car
+    internal class CarPlacePrinter
     {
+        static string CheckNullOrEmpty(string s)
+        {
+            if (string.IsNullOrEmpty(s))
+            {
+                s = "Не указано";
+                return s;
+            }
+            else
+            {
+                return s;
+            }
+        }
+
+        static string Year(int year)
+        {
+            if (year < 2022 && year > 1920)
+            {
+                return Convert.ToString(year);
+            }
+            else
+            {
+                return "Не верно указан год выпуска";
+            }
+        }
+
         public List<Car> ParkedCars { get; set; }
         public void PrintParkedCars()
         {
             ParkedCars.ForEach(p =>
-            Console.WriteLine($"Model: {p.Model}\n" +
-            $"Mark: {p.Mark}\n" +
-            $"Color: {p.Color}\n" +
-            $"Number: {p.Number}\n" +
+            Console.WriteLine($"Mark: {CheckNullOrEmpty(p.Mark)}\n" +
+            $"Model: {CheckNullOrEmpty(p.Model)}\n" +
+            $"Color: {CheckNullOrEmpty(p.Color)}\n" +
+            $"Number: {CheckNullOrEmpty(p.Number)}\n" +
             $"Arriving time: {p.ArrivingTime.ToShortTimeString()}\n\n\n")
             );
         }
-
+        
+        public List<Moto> ParkedMotos { get; set; }
+        public void PrintParkedMoto()
+        {
+            ParkedMotos.ForEach(q =>
+            Console.WriteLine($"Mark: {CheckNullOrEmpty(q.Mark)}\n" +
+            $"Model: {CheckNullOrEmpty(q.Model)}\n" +
+            $"Color: {CheckNullOrEmpty(q.Color)}\n" +
+            $"Number: {CheckNullOrEmpty(q.Number)}\n" +
+            $"Year of Issue: {Year(q.YearOfIssue)}\n" +
+            $"Arriving time: {q.ArrivingTime.ToShortTimeString()}\n\n\n")
+            );
+        }
     }
 }
